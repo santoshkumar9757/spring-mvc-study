@@ -1,9 +1,5 @@
-/**
- * 
- */
 package org.santosh.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,16 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
-/**
- * @author Santosh
- * @date 24-Mar-2018
- */
-
-/**
- * Annotated way
- * */
-
-@Controller
+@RestController
 public class HelloController {
 
 	@RequestMapping(value = "/welcome/{firstName}/{lastName}", method = RequestMethod.GET)
@@ -34,20 +21,4 @@ public class HelloController {
 		
 		return modelAndView;
 	}
-	
-	/**
-	 * Non-annotated way
-	 * */
-
-	/*public class HelloController extends AbstractController {
-
-		@Override
-		protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-			
-			ModelAndView modelAndView = new ModelAndView("WelcomeSpringMVC");
-			modelAndView.addObject("welcomeMsg", "Super Maccha!! Vanakkam to Spring MVC web app");
-			return modelAndView;
-		}
-	}*/
-	
 }
