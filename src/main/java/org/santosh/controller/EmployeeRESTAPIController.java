@@ -40,11 +40,13 @@ public class EmployeeRESTAPIController {
 		return alEmployeeList;
 	}
 
-	@GetMapping(value = "/employees/{name}", produces = MediaType.APPLICATION_XML_VALUE)
+	//Default response type is XML
+	@GetMapping(value = "/employees/{name}")
 	public Employee getEmployeeDetails(@PathVariable("name") String employeeName) {
 		
 		Employee employee = new Employee();
 		employee.setEmployeeName(employeeName);
+		employee.setEmpHobby("Gaming");
 		
 		return employee;
 	}
