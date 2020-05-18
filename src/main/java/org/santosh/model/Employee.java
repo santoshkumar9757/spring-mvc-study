@@ -13,6 +13,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -23,7 +27,13 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"employeeName", "employeeDept", "dateOfBirth", "employeeAddress", "empHobby" })
 @ApiModel(description = "Employee Description")
+@Entity
 public class Employee {
+
+	@Id
+	@GeneratedValue
+	private Integer id;
+
 	@JsonProperty("EmployeeName")
 	private String employeeName;
 
@@ -35,7 +45,7 @@ public class Employee {
 	private Date dateOfBirth;
 
 	@JsonProperty("Address")
-	private Address employeeAddress;
+	private String employeeAddress;
 	
 	@Size(min=2, max=20)
 	@ApiModelProperty(allowableValues = "min = 2, max = 20", dataType = "String")

@@ -20,8 +20,8 @@ public class FilterController {
     @GetMapping(value = "/filter-pin", produces = MediaType.APPLICATION_JSON_VALUE)
     public MappingJacksonValue filterEmployeePin() {
 
-        Employee e1 = new Employee("Santosh", "IT", new Date(),
-                new Address("GB Marg", "Mumbai", 400013), "Gaming");
+        Employee e1 = new Employee(1, "Santosh", "IT", new Date(),
+                "GB Marg Mumbai-400013", "Gaming");
 
         FilterProvider propertyFilter = getPropertyFilter("streetName", "city");
         MappingJacksonValue mappingValue = new MappingJacksonValue(e1);
@@ -33,10 +33,10 @@ public class FilterController {
     @GetMapping(value = "filter-street", produces = MediaType.APPLICATION_JSON_VALUE)
     public MappingJacksonValue filterEmployeeStreetNames() {
 
-        Employee e1 = new Employee("Santosh", "IT", new Date(),
-                new Address("Parel", "Mumbai", 400013), "Gaming");
-        Employee e2 = new Employee("Shiva", "DB", new Date(),
-                new Address("Parel", "Mumbai", 400013), "Self Praising");
+        Employee e1 = new Employee(1,"Santosh", "IT", new Date(),
+                "Parel Mumbai-400013", "Gaming");
+        Employee e2 = new Employee(2, "Shiva", "DB", new Date(),
+                "Parel Mumbai-400013", "Self Praising");
         List<Employee> list = Arrays.asList(e1, e2);
 
         FilterProvider propertyFilter = getPropertyFilter("city", "pincode");
