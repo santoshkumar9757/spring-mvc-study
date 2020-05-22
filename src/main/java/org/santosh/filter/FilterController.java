@@ -10,6 +10,7 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +22,7 @@ public class FilterController {
     public MappingJacksonValue filterEmployeePin() {
 
         Employee e1 = new Employee(1, "Santosh", "IT", new Date(),
-                "GB Marg Mumbai-400013", "Gaming");
+                "GB Marg Mumbai-400013", "Gaming", new ArrayList<>());
 
         FilterProvider propertyFilter = getPropertyFilter("streetName", "city");
         MappingJacksonValue mappingValue = new MappingJacksonValue(e1);
@@ -34,9 +35,9 @@ public class FilterController {
     public MappingJacksonValue filterEmployeeStreetNames() {
 
         Employee e1 = new Employee(1,"Santosh", "IT", new Date(),
-                "Parel Mumbai-400013", "Gaming");
+                "Parel Mumbai-400013", "Gaming", new ArrayList<>());
         Employee e2 = new Employee(2, "Shiva", "DB", new Date(),
-                "Parel Mumbai-400013", "Self Praising");
+                "Parel Mumbai-400013", "Self Praising", new ArrayList<>());
         List<Employee> list = Arrays.asList(e1, e2);
 
         FilterProvider propertyFilter = getPropertyFilter("city", "pincode");
